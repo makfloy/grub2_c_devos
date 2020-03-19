@@ -41,8 +41,8 @@ build/arch/$(arch)/%.o: src/arch/$(arch)/%.asm
 	@$(AS) $(ASFLAGS) $< -o $@
 
 CC=gcc
-CGLAGS=
+CGLAGS=-m32 -std=gnu99 -ffreestanding -O2 -Wall -Wextra -c
 build/arch/$(arch)/%.o: src/arch/$(arch)/%.c
-	@mkdir -p $(@D)
+	mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $< -o $@
 
